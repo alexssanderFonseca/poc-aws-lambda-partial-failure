@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "lambda-poc-sqs"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-tkdsd2plauhw"
+s3_prefix = "lambda-poc-sqs"
+region = "us-east-2"
+capabilities = "CAPABILITY_IAM"
+image_repositories = []

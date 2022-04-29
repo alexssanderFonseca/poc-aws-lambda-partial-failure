@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  pocawslambdasqsretry
+
+  Sample SAM Template for pocawslambdasqsretry
+Globals:
+  Function:
+    Timeout: 10
+
+Resources:
+  TesteRealizado:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: lambda-poc-sqs
+      CodeUri: app/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Architectures:
+        - x86_64
+      Events:
+        TesteRealizado:
+          Type: SQS
+          Properties:
+            Queue: arn:aws:sqs:us-east-2:596275259266:SqsPoc
+            BatchSize: 10
+            MaximumBatchingWindowInSeconds: 20
+            FunctionResponseTypes:
+              - ReportBatchItemFailures
+
+
+
+
+
+
+
